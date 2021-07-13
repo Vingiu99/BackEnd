@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.3.xsd">
+    <!--
+        Added the constraints for entity Operatore.
+    -->
+    <changeSet id="20210713121104-2" author="jhipster">
+
+        <addForeignKeyConstraint baseColumnNames="operatore_id"
+                                 baseTableName="rel_operatore__prenotazione"
+                                 constraintName="fk_rel_operatore__prenotazione__operatore_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="operatore"/>
+
+        <addForeignKeyConstraint baseColumnNames="prenotazione_id"
+                                 baseTableName="rel_operatore__prenotazione"
+                                 constraintName="fk_rel_operatore__prenotazione__prenotazione_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="prenotazione"/>
+    </changeSet>
+</databaseChangeLog>
