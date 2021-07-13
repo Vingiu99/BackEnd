@@ -1,0 +1,58 @@
+application {
+  config {
+    baseName BackEnd,
+    applicationType monolith,
+    packageName com.myapp,
+    authenticationType jwt,
+    prodDatabaseType mysql,
+    skipClient true
+  }
+  entities *
+}
+ 
+entity Paziente {
+    codiceFiscale String required,
+    tesseraSanitaria String required,
+    nome String required,
+    cognome String required,
+    dataNascita ZonedDateTime required,
+    luogoNascita String required,
+    luogoResidenza String required,
+    email String required,
+    telefono String required,
+    password String required
+}
+ 
+entity Operatore {
+    idAslOperatore String required,
+    nome String required,
+    cognome String required,
+    dataNascita ZonedDateTime required,
+    luogoNascita String required,
+    email String required,
+    telefono String required,
+    password String required
+}
+ 
+entity Prenotazione {
+    codiceFiscale String required,
+    tesseraSanitaria String required,
+    nome String required,
+    cognome String required,
+    dataNascita ZonedDateTime required,
+    luogoNascita String required,
+    luogoResidenza String required,
+    email String required,
+    telefono String required,
+    luogoVaccino String required,
+    dataVaccino ZonedDateTime required
+}
+ 
+
+relationship OneToOne {
+  Paziente to Prenotazione
+}
+ 
+relationship ManyToMany{
+Operatore to Prenotazione
+}
